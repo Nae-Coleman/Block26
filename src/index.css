@@ -1,9 +1,31 @@
-
-.hole {
-  background: url("/hole.png") no-repeat center/contain;
-}
-
 .mole {
   background-image: url("/mole.png");
 }
 
+/* Each hole */
+.hole {
+  background: url("/hole.png") no-repeat center/contain;
+  width: 100px;
+  height: 100px;
+  background: url("/hole.png") no-repeat center/contain;
+  display: inline-block;
+  margin: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Show mole on top of hole */
+.hole.mole {
+  background: url("/hole.png") no-repeat center/contain; /* keep hole visible */
+}
+
+.hole.mole::after {
+  content: "";
+  background: url("/mole.png") no-repeat center/contain;
+  background-size: contain;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  top: 10px;
+  left: 10px;
+}
